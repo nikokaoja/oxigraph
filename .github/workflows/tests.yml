@@ -33,7 +33,7 @@ jobs:
           target: wasm32-unknown-emscripten
       - run: |
           pip install pyodide-build==0.25.0
-          pyodide xbuildenv install 0.25.0
+          pyodide xbuildenv install
           echo EMSCRIPTEN_VERSION=$(pyodide config get emscripten_version) >> $GITHUB_ENV
       - uses: mymindstorm/setup-emsdk@v14
         with:
