@@ -24,7 +24,7 @@ jobs:
           submodules: true
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.11"
           cache: pip
           cache-dependency-path: '**/requirements.dev.txt'
       - uses: ./.github/actions/setup-rust
@@ -33,16 +33,6 @@ jobs:
           target: wasm32-unknown-emscripten
       - run: |
           pip install pyodide-build
-          pyodide xbuildenv install 0.26.0
-          git clone https://github.com/emscripten-core/emsdk
-          cd emsdk
-
-          EMSCRIPTEN_VERSION=$(pyodide config get emscripten_version)
-          ./emsdk install ${PYODIDE_EMSCRIPTEN_VERSION}
-          ./emsdk activate ${PYODIDE_EMSCRIPTEN_VERSION}
-          source emsdk_env.sh
-          which emcc
-          cd ..
           echo EMSCRIPTEN_VERSION=$(pyodide config get emscripten_version) >> $GITHUB_ENV
       - uses: mymindstorm/setup-emsdk@v14
         with:
