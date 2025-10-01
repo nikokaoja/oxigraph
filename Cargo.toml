@@ -299,7 +299,6 @@ zero_sized_map_values = "warn"
 [profile.release]
 lto = true
 codegen-units = 1
-panic = "abort"
 
 [profile.release.package.oxigraph-js]
 opt-level = "z"
