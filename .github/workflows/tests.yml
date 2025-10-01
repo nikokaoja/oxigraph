@@ -46,4 +46,4 @@ jobs:
           rustup install nightly-2025-02-01
           rustup default nightly-2025-02-01
           rustup target add wasm32-unknown-emscripten
-          maturin build --target wasm32-unknown-emscripten -i 3.12
+          pyodide build
